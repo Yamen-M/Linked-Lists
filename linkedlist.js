@@ -95,4 +95,41 @@ export default class LinkedList{
         outputString += `null`;
         return outputString;
     }
+
+    insertAt = (value, index) => {
+
+        if (index === 0) this.prepend(value);
+        else if (index === this.length) this.append(value);
+        else{
+            const prevNode = this.at(index - 1);
+            const nextNode = this.at(index);
+
+            if (!prevNode) return null;
+
+            let newNode = new Node(nextNode, value);
+            prevNode.nextNode = newNode;
+
+            this.length++;
+        }
+    }
+
+    removeAt = (index) => {
+        if (index < 0 || index >= this.length) return null;
+
+        if(index === this.length - 1) {
+            this.pop();
+            return;
+        }
+        
+        if (index === 0){
+            this.head = this.head.nextNode;
+            this.length--;
+            return;
+        } 
+        
+        const prevNode = this.at(index - 1);
+        const temp = this.at(index);
+        prevNode.nextNode = temp.nextNode;
+        this.length--;
+    }
 }
