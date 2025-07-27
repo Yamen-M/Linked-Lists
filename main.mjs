@@ -1,4 +1,4 @@
-import LinkedList from './linkedlist.js'
+import LinkedList from './linkedlist.mjs'
 
 // example uses class syntax - adjust as necessary
 const odinList = new LinkedList();
@@ -15,7 +15,7 @@ console.log(odinList.toString());
 const list = new LinkedList();
 
 // === Initial State ===
-console.log("\n\nInitial list:", list.toString()); // null
+console.log("\nInitial list:", list.toString()); // null
 
 // === Append values ===
 list.append(10);
